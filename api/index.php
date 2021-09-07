@@ -3,7 +3,7 @@
 $title = $_GET['title'] ?? '';
 $videoid = $_GET['video_id'] ?? '';
 $params = $_GET['params'] ?? '';
-$player = "";
+$player = "<!-- no video id -->";
 if ($videoid) {
     $player = <<<PLAYER
 <lite-youtube videoid="$videoid" params="$params" style="background-image: url('https://i.ytimg.com/vi/$videoid/hqdefault.jpg">
@@ -35,4 +35,5 @@ $player
 </html>
 HTML;
 
+header("Access-Control-Allow-Origin: *");
 echo $html;
