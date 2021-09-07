@@ -1,5 +1,6 @@
 <?php
 
+$cacheSeconds = 3600 * 24 * 365;
 $title = $_GET['title'] ?? '';
 $videoid = $_GET['video_id'] ?? '';
 $params = $_GET['params'] ?? '';
@@ -16,14 +17,14 @@ PLAYER;
 
 $html = <<<HTML
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>$title</title>
     <link rel="stylesheet" href="node_modules/lite-youtube-embed/src/lite-yt-embed.css" />
-    <script src="node_modules/lite-youtube-embed/src/lite-yt-embed.js"></script>
+    <script defer src="node_modules/lite-youtube-embed/src/lite-yt-embed.js"></script>
     <style type="text/css">
     *{padding:0;margin:0;overflow:hidden}
     html,body{height:100%}
@@ -36,4 +37,5 @@ $player
 HTML;
 
 header("Access-Control-Allow-Origin: *");
+header("Cache-Control: max-age=0, s-maxage=$cacheSeconds");
 echo $html;
