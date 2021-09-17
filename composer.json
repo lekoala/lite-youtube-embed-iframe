@@ -1,0 +1,21 @@
+{
+  "name": "lekoala/lite-youtube-embed-iframe",
+  "description": "Replace regular YouTube embeds by lighter ones",
+  "type": "project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Thomas",
+      "email": "thomas@lekoala.be"
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "embed/embed": "^4.3",
+    "nyholm/psr7": "^1.4"
+  },
+  "scripts": {
+    "serve": "php -S 127.0.0.1:8080 api/index.php"
+  }
+}
